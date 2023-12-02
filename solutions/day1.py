@@ -43,7 +43,7 @@ def part1(data: list[str]) -> int:
     digits_list = []
     for line in data:
         filtered = filter(lambda x: x.isdigit(), line)
-        digits_only = list(map(lambda x: int(x), filtered))
+        digits_only = list(map(int, filtered))
         digits_list.append(digits_only)
     # Gather the first and last digits of each list.
     # When only one digit is present, it is both the first and last digit.
