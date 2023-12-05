@@ -46,6 +46,7 @@ class Scratchcard:
                 self.matching_numbers.append(winning_num)
         # Calculate the worth of the scratchcard:
         self.worth_points = self.calculate_worth(len(self.matching_numbers))
+        return self.matching_numbers
 
 
 def parse_input(filename: str) -> list[str]:
@@ -101,6 +102,7 @@ def part2(data: list[str]) -> int:
 # =============================================================================
 
 if __name__ == "__main__":
+    print("\n==================== DAY 04 ====================")
     # example_data = parse_input("day4-example.txt")
     input_data = parse_input("day4.txt")
 
