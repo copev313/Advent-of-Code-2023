@@ -3,6 +3,7 @@
 """
 from utils.input import get_input_data
 
+# =============================================================================
 
 SPELLED_OUT_NUMBERS = {
     "one": "o1e",
@@ -20,7 +21,6 @@ SPELLED_OUT_NUMBERS = {
 def parse_input(filename: str) -> list[str]:
     """Retrieves, parses, and formats the input data."""
     lines = get_input_data(filename)
-    # Remove newline characters:
     lines = map(lambda x: x.replace("\n", ""), lines)
     return list(lines)
 
@@ -33,7 +33,10 @@ def build_two_digit_nums(data: list[int]) -> int:
         Given [1, 2, 3, 4, 5], returns 15.
     """
     first, last = data[0], data[-1]
-    return first * 10 + last 
+    return first * 10 + last
+
+
+# =============================================================================
 
 
 def part1(data: list[str]) -> int:
@@ -64,10 +67,15 @@ def part2(data: list[str]) -> int:
     return part1(lines)
 
 
+# =============================================================================
+
 if __name__ == "__main__":
+    print("\n==================== DAY 01 ====================")
     input_data = parse_input("day1.txt")
     solution1 = part1(input_data)
-    print(f"* Part 1 Solution: {solution1}")  # 52974
+    assert solution1 == 52974
+    print(f"* Part 1 Solution: {solution1}")
 
     solution2 = part2(input_data)
-    print(f"* Part 2 Solution: {solution2}")  # 53340
+    assert solution2 == 53340
+    print(f"* Part 2 Solution: {solution2}")

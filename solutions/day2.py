@@ -3,6 +3,8 @@
 """
 from utils.input import get_input_data
 
+# =============================================================================
+
 MAX_RED_CUBES = 12
 MAX_GREEN_CUBES = 13
 MAX_BLUE_CUBES = 14
@@ -67,6 +69,9 @@ def create_rgb_tuples(data: list[dict]) -> list[tuple[int, int, int]]:
     return data
 
 
+# =============================================================================
+
+
 def part1(data: list[str]) -> int:
     """Solves part 1 of the day's challenge."""
     data = create_rgb_tuples(data)
@@ -76,7 +81,11 @@ def part1(data: list[str]) -> int:
         for rnd in rounds_list:
             red, green, blue = rnd
             # [CASE] If any of the colors exceed their respective max, skip:
-            if red > MAX_RED_CUBES or green > MAX_GREEN_CUBES or blue > MAX_BLUE_CUBES:
+            if (
+                red > MAX_RED_CUBES
+                or green > MAX_GREEN_CUBES
+                or blue > MAX_BLUE_CUBES
+            ):
                 total_sum -= record["game"]
                 break
     return total_sum
@@ -98,11 +107,16 @@ def part2(data: list[str]) -> int:
     return sum(powers_list)
 
 
+# =============================================================================
+
 if __name__ == "__main__":
+    print("\n==================== DAY 02 ====================")
     input_data = parse_input("day2.txt")
     solution1 = part1(input_data)
-    print(f"* Part 1 Solution: {solution1}")  # 2505
+    assert solution1 == 2505
+    print(f"* Part 1 Solution: {solution1}")
 
     input_data = parse_input("day2.txt")
     solution2 = part2(input_data)
-    print(f"* Part 2 Solution: {solution2}")  # 70265
+    assert solution2 == 70265
+    print(f"* Part 2 Solution: {solution2}")
